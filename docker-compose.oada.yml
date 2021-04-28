@@ -1,0 +1,6 @@
+# Thing for oadadeploy nonsense?
+services:
+  serivce:
+    extends:
+      file: ./services/SERVICE_NAME/docker-compose.yml
+      service: service
