@@ -75,7 +75,8 @@ jobs:
     strategy:
       matrix:
         service:
-          - 'trellisfw/ainz'
+          # Assume repo slug is the service slug?
+          - ${{ github.repository }}
         context:
           - '.'
 
