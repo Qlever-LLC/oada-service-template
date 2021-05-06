@@ -12,10 +12,12 @@
   "dependencies": {
     "@oada/client": "^2.4.1",
     "@oada/types": "^1.5.1",
-    "dotenv": "^8.2.0"
+    "convict": "^6.1.0",
+    "dotenv": "^9.0.0"
   },
   "devDependencies": {
     "@tsconfig/node14": "^1.0.0",
+    "@types/convict": "^6",
     "@types/node": "^14.14.43",
     "@yarnpkg/pnpify": "^3.0.0-rc.3",
     "prettier": "^2.2.1",

@@ -1,4 +1,4 @@
-/* Copyright 2021 Qlever LLC
+/* Copyright 2020 Qlever LLC
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -13,24 +13,29 @@
  * limitations under the License.
  */
 
-import { connect } from '@oada/client';
+import convict from 'convict';
+import { config as load } from 'dotenv';
 
-import config from './config';
+load();
 
-// Stuff from config
-const { token, domain } = config.get('oada');
-
-/**
- * Start-up for a given user (token)
- */
-async function run() {
-  // Connect to the OADA API
-  const conn = await connect({ token, domain });
-
-  /**
-   * Now do service stuff
+const config = convict({
+  oada: {
+    domain: {
+      doc: 'OADA API domain',
+      format: String,
+      default: 'localhost',
+      env: 'DOMAIN',
+    },
+    token: {
+      doc: 'OADA API token',
+      format: String,
+      default: 'god',
+      env: 'TOKEN',
+    },
+  },
+  /*
+   * Add more config stuff when needed
    */
-}
+});
 
-// Don't forget to handle errors
-run().catch(console.error);
+export default config;
