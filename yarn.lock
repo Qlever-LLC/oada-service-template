@@ -12,12 +12,13 @@ __metadata:
     "@oada/client": ^2.4.1
     "@oada/types": ^1.5.1
     "@tsconfig/node14": ^1.0.0
-    "@types/convict": ^6
-    "@types/node": ^14.14.43
+    "@types/convict": ^6.0.1
+    "@types/node": ^14.14.45
     "@yarnpkg/pnpify": ^3.0.0-rc.3
     convict: ^6.1.0
-    dotenv: ^9.0.0
-    prettier: ^2.2.1
+    dotenv: ^9.0.2
+    prettier: ^2.3.0
+    tslib: ^2.2.0
     typescript: ^4.2.4
   languageName: unknown
   linkType: soft
@@ -121,7 +122,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/convict@npm:^6":
+"@types/convict@npm:^6.0.1":
   version: 6.0.1
   resolution: "@types/convict@npm:6.0.1"
   dependencies:
@@ -153,10 +154,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^14.14.43":
-  version: 14.14.43
-  resolution: "@types/node@npm:14.14.43"
-  checksum: b7a9e6df7c2a6f90e783bfe6ef358cc2c3ff4e1dfcea56b83349cd3feefd02a9b6fa54b443983694b4398a06257d871c947abeae03bd0d39fd71981161d61765
+"@types/node@npm:*, @types/node@npm:^14.14.45":
+  version: 14.14.45
+  resolution: "@types/node@npm:14.14.45"
+  checksum: b9ad381a8cc5273bfd75d5870f57eed2b0978a5afe9e7e0347fcdb955e9fed502277a374c2837c3e1fe6a7ade58d53a460d954dbbe50e2f18bdd7e86075ffca9
   languageName: node
   linkType: hard
 
@@ -653,10 +654,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "dotenv@npm:9.0.0"
-  checksum: 8111fb99a12a8da9fedc90d855d734bbf026f3257d67b611b2517d393b027ca5774c1f9dd5aa0887f339f4e7c711f99bdd8bc82fa076e572f3eb6000b2c09343
+"dotenv@npm:^9.0.2":
+  version: 9.0.2
+  resolution: "dotenv@npm:9.0.2"
+  checksum: 062a31a2fd024a8a7efee4f2d3972d488a1485e0545b97ab3c338f59f17689a2ae84b6e8ddb9ebca2902cc9b4926e7b672a476f5e326c6902648312fc3da54d9
   languageName: node
   linkType: hard
 
@@ -1332,12 +1333,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "prettier@npm:2.2.1"
+"prettier@npm:^2.3.0":
+  version: 2.3.0
+  resolution: "prettier@npm:2.3.0"
   bin:
     prettier: bin-prettier.js
-  checksum: 92c6c9f4b87eba1f28466edee57dd18c80d00b858edda77d46d1950d20e6e302b68ee255fc91133ba931e63c4577b5ae30da194d9626a8f3c0177778b91bf056
+  checksum: 652640cc8b71bc5277cfb8bf6f161783ca588efcf683c3d630837b39da8d57fef35c9e00ae5855a8e3c75136c42274046c913cc2b2d2968558315f31c6a26981
   languageName: node
   linkType: hard
 
@@ -1723,6 +1724,13 @@ __metadata:
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: f44fe7f216946b17d3e3074df3746372703cf24e9127b4c045511456e8e4bf25515fb0a1bb3937676cc305651c5d4fcb6377b0588a4c6a957e748c4c28905d17
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "tslib@npm:2.2.0"
+  checksum: 2d35468c470410871c5246e43f12dcb6d0fc363b617c176f26443b9530e5c5ee8448966892a42956168d8f495da7865bda33dfe82c26c91991e28999974a618f
   languageName: node
   linkType: hard
 

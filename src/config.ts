@@ -25,12 +25,14 @@ const config = convict({
       format: String,
       default: 'localhost',
       env: 'DOMAIN',
+      arg: 'domain',
     },
     token: {
       doc: 'OADA API token',
-      format: String,
-      default: 'god',
+      format: Array,
+      default: ['god'],
       env: 'TOKEN',
+      arg: 'token',
     },
   },
   /*

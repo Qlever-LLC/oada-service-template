@@ -13,24 +13,32 @@
  * limitations under the License.
  */
 
-import { connect } from '@oada/client';
+import { connect, OADAClient } from '@oada/client';
 
 import config from './config';
 
 // Stuff from config
-const { token, domain } = config.get('oada');
+const { token: tokens, domain } = config.get('oada');
+
+/**
+ * Shared OADA client instance?
+ */
+let oada: OADAClient;
 
 /**
  * Start-up for a given user (token)
  */
-async function run() {
+async function run(token: string) {
   // Connect to the OADA API
-  const conn = await connect({ token, domain });
+  const conn = oada
+    ? oada.clone(token)
+    : (oada = await connect({ token, domain: 'https://' + domain }));
 
   /**
    * Now do service stuff
    */
 }
 
-// Don't forget to handle errors
-run().catch(console.error);
+for (const token of tokens) {
+  run(token);
+}
