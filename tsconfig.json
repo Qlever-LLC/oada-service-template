@@ -3,7 +3,6 @@
   "compilerOptions": {
     "removeComments": true,
     "importHelpers": true,
-    "composite": true,
     "strict": true,
     "importsNotUsedAsValues": "error",
     "noUncheckedIndexedAccess": true,
@@ -14,5 +13,6 @@
     "sourceMap": true,
     "rootDir": "src",
     "outDir": "dist"
-  }
+  },
+  "include": ["src"]
 }
