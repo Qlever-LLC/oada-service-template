@@ -1,5 +1,5 @@
 {
-  "name": "@oada-service-template",
+  "name": "@Qlever-LLC/oada-service-template",
   "version": "1.0.0",
   "description": "An oada microservice",
   "main": "dist/index.js",

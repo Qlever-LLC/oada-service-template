@@ -5,9 +5,9 @@ __metadata:
   version: 4
   cacheKey: 7
 
-"@SERVICE_NAME@workspace:.":
+"@Qlever-LLC/oada-service-template@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@SERVICE_NAME@workspace:."
+  resolution: "@Qlever-LLC/oada-service-template@workspace:."
   dependencies:
     "@oada/client": ^2.4.1
     "@oada/types": ^1.5.1

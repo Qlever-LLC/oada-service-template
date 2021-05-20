@@ -1,24 +1,24 @@
 # USING THIS TEMPLATE
 
 Once you clone this template repo,
-be sure to change the name by replacing `oada-service-template`
-(e.g., `sed -i 's/oada-service-template/trellisfw\/awesome-service/g' *`).
+be sure to change the name by replacing `Qlever-LLC/oada-service-template`
+(e.g., `sed -i 's/Qlever-LLC\/oada-service-template/trellisfw\/awesome-service/g' *`).
 
 You probably will also want to update the license stuff.
 
 Finally, remove this section from the README.
 
-# oada-service-template
+# Qlever-LLC/oada-service-template
 
-[![License](https://img.shields.io/github/license/oada-service-template)](LICENSE)
-[![Docker Pulls](https://img.shields.io/docker/pulls/oada-service-template)][dockerhub]
+[![License](https://img.shields.io/github/license/Qlever-LLC/oada-service-template)](LICENSE)
+[![Docker Pulls](https://img.shields.io/docker/pulls/Qlever-LLC/oada-service-template)][dockerhub]
 
 This is a microservice which moves (actually just makes links)
 resources from a "watch list" to another list based on rules.
 
 ## Usage
 
-Docker images for oada-service-template are available from GitHub Container Registry.
+Docker images for Qlever-LLC/oada-service-template are available from GitHub Container Registry.
 
 ### docker-compose
 
@@ -27,7 +27,7 @@ Here is an example of using this service with docker-compose.
 ```yaml
 services:
   service:
-    image: oada-service-template
+    image: Qlever-LLC/oada-service-template
     restart: unless-stopped
     environment:
       NODE_TLS_REJECT_UNAUTHORIZED:
@@ -41,7 +41,7 @@ services:
       TOKEN: ${TOKEN:-abc123,def456}
 ```
 
-### Running oada-service-template within the [OADA Reference API Server]
+### Running Qlever-LLC/oada-service-template within the [OADA Reference API Server]
 
 To add this service to the services run with an OADA v3 server,
 simply add a snippet like the one in the previous section
@@ -62,5 +62,5 @@ echo TOKEN=abc123 >> .env # Set API token(s) for the service
 docker-compose up -d
 ```
 
-[dockerhub]: https://hub.docker.com/repository/docker/oada-service-template
+[dockerhub]: https://hub.docker.com/repository/docker/Qlever-LLC/oada-service-template
 [oada reference api server]: https://github.com/OADA/server
