@@ -2,7 +2,7 @@ services:
   service:
     build:
       context: .
-    image: SERVICE_NAME
+    image: oada-service-template
     restart: unless-stopped
     environment:
       - NODE_TLS_REJECT_UNAUTHORIZED

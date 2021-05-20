@@ -2,5 +2,5 @@
 services:
   serivce:
     extends:
-      file: ./services/SERVICE_NAME/docker-compose.yml
+      file: ./services/oada-service-template/docker-compose.yml
       service: service

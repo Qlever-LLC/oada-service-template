@@ -1,5 +1,5 @@
 ARG NODE_VER=16-alpine
-ARG SERVICE=SERVICE_NAME
+ARG SERVICE=oada-service-template
 
 FROM node:$NODE_VER AS install
 ARG SERVICE

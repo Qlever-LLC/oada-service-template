@@ -1,24 +1,24 @@
 # USING THIS TEMPLATE
 
 Once you clone this template repo,
-be sure to change the name by replacing `SERVICE_NAME`
-(e.g., `sed -i 's/SERVICE_NAME/trellisfw\/awesome-service/g' *`).
+be sure to change the name by replacing `oada-service-template`
+(e.g., `sed -i 's/oada-service-template/trellisfw\/awesome-service/g' *`).
 
 You probably will also want to update the license stuff.
 
 Finally, remove this section from the README.
 
-# SERVICE_NAME
+# oada-service-template
 
-[![License](https://img.shields.io/github/license/SERVICE_NAME)](LICENSE)
-[![Docker Pulls](https://img.shields.io/docker/pulls/SERVICE_NAME)][dockerhub]
+[![License](https://img.shields.io/github/license/oada-service-template)](LICENSE)
+[![Docker Pulls](https://img.shields.io/docker/pulls/oada-service-template)][dockerhub]
 
 This is a microservice which moves (actually just makes links)
 resources from a "watch list" to another list based on rules.
 
 ## Usage
 
-Docker images for SERVICE_NAME are available from GitHub Container Registry.
+Docker images for oada-service-template are available from GitHub Container Registry.
 
 ### docker-compose
 
@@ -27,7 +27,7 @@ Here is an example of using this service with docker-compose.
 ```yaml
 services:
   service:
-    image: SERVICE_NAME
+    image: oada-service-template
     restart: unless-stopped
     environment:
       NODE_TLS_REJECT_UNAUTHORIZED:
@@ -41,7 +41,7 @@ services:
       TOKEN: ${TOKEN:-abc123,def456}
 ```
 
-### Running SERVICE_NAME within the [OADA Reference API Server]
+### Running oada-service-template within the [OADA Reference API Server]
 
 To add this service to the services run with an OADA v3 server,
 simply add a snippet like the one in the previous section
@@ -62,5 +62,5 @@ echo TOKEN=abc123 >> .env # Set API token(s) for the service
 docker-compose up -d
 ```
 
-[dockerhub]: https://hub.docker.com/repository/docker/SERVICE_NAME
+[dockerhub]: https://hub.docker.com/repository/docker/oada-service-template
 [oada reference api server]: https://github.com/OADA/server
