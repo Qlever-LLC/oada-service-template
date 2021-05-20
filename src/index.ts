@@ -35,8 +35,9 @@ async function run(token: string) {
     : (oada = await connect({ token, domain: 'https://' + domain }));
 
   /**
-   * Now do service stuff
+   * Now do your service stuff...
    */
+  await conn.head({ path: '/bookmarks' });
 }
 
 for (const token of tokens) {

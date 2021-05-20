@@ -18,7 +18,7 @@ resources from a "watch list" to another list based on rules.
 
 ## Usage
 
-Docker images for SERVICE_NAME are available from dockerhub.
+Docker images for SERVICE_NAME are available from GitHub Container Registry.
 
 ### docker-compose
 
@@ -49,7 +49,8 @@ to your `docker-compose.override.yml`.
 
 ### External Usage
 
-To run this service separately, simply set the domain and token(s) of the OADA API.
+To run this service separately,
+simply set the domain and token(s) of the OADA API.
 
 ```shell
 # Set up the environment.
@@ -62,4 +63,4 @@ docker-compose up -d
 ```
 
 [dockerhub]: https://hub.docker.com/repository/docker/SERVICE_NAME
-[oada reference api server]: https://github.com/OADA/oada-srvc-docker
+[oada reference api server]: https://github.com/OADA/server

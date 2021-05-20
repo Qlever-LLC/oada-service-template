@@ -184,6 +184,7 @@ jobs:
             VERSION=${{ steps.prepare.outputs.version }}
             BUILD_DATE=${{ steps.prepare.outputs.created }}
             GIT_REF=${{ github.sha }}
+            SERVICE=${{ matrix.service }}
           labels: |
             org.opencontainers.image.title=${{ matrix.service }}
             org.opencontainers.image.url=${{ github.event.repository.html_url }}

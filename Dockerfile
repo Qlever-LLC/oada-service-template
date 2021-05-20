@@ -2,8 +2,9 @@ ARG NODE_VER=16-alpine
 ARG SERVICE=SERVICE_NAME
 
 FROM node:$NODE_VER AS install
+ARG SERVICE
 
-WORKDIR /SERVICE_NAME
+WORKDIR /$SERVICE
 
 COPY ./.yarn /$SERVICE/.yarn
 COPY ./package.json ./yarn.lock ./.yarnrc.yml /$SERVICE/
@@ -18,9 +19,10 @@ RUN yarn install --immutable
 COPY . /$SERVICE/
 
 # Build code and remove dev deps
-RUN yarn build -p --verbose && rm -rfv .yarn .pnp*
+RUN yarn build --verbose && rm -rfv .yarn .pnp*
 
 FROM node:$NODE_VER AS production
+ARG SERVICE
 
 # Install needed packages
 RUN apk add --no-cache \
