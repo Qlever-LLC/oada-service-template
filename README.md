@@ -1,6 +1,3 @@
-[![License](https://img.shields.io/github/license/SERVICE_NAME)](LICENSE)
-[![Docker Pulls](https://img.shields.io/docker/pulls/SERVICE_NAME)][dockerhub]
-
 # USING THIS TEMPLATE
 
 Once you clone this template repo,
@@ -12,6 +9,9 @@ You probably will also want to update the license stuff.
 Finally, remove this section from the README.
 
 # SERVICE_NAME
+
+[![License](https://img.shields.io/github/license/SERVICE_NAME)](LICENSE)
+[![Docker Pulls](https://img.shields.io/docker/pulls/SERVICE_NAME)][dockerhub]
 
 This is a microservice which moves (actually just makes links)
 resources from a "watch list" to another list based on rules.

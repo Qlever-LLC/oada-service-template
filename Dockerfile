@@ -1,11 +1,12 @@
 ARG NODE_VER=16-alpine
+ARG SERVICE=SERVICE_NAME
 
 FROM node:$NODE_VER AS install
 
 WORKDIR /SERVICE_NAME
 
-COPY ./.yarn /SERVICE_NAME/.yarn
-COPY ./package.json ./yarn.lock ./.yarnrc.yml /SERVICE_NAME/
+COPY ./.yarn /$SERVICE/.yarn
+COPY ./package.json ./yarn.lock ./.yarnrc.yml /$SERVICE/
 
 RUN yarn workspaces focus --all --production
 
@@ -14,20 +15,26 @@ FROM install AS build
 # Install dev deps too
 RUN yarn install --immutable
 
-COPY . /SERVICE_NAME/
+COPY . /$SERVICE/
 
 # Build code and remove dev deps
-RUN yarn build && rm -rfv .yarn .pnp*
+RUN yarn build -p --verbose && rm -rfv .yarn .pnp*
 
 FROM node:$NODE_VER AS production
+
+# Install needed packages
+RUN apk add --no-cache \
+    dumb-init
 
 # Do not run service as root
 USER node
 
-WORKDIR /SERVICE_NAME
+WORKDIR /$SERVICE
 
-COPY --from=install /SERVICE_NAME/ /SERVICE_NAME/
-COPY --from=build /SERVICE_NAME/ /SERVICE_NAME/
+COPY --from=install /$SERVICE/ /$SERVICE/
+COPY --from=build /$SERVICE/ /$SERVICE/
 
-ENTRYPOINT ["yarn", "run"]
+# Launch entrypoint with dumb-init
+# Remap SIGTERM to SIGINT https://github.com/Yelp/dumb-init#signal-rewriting
+ENTRYPOINT ["/usr/bin/dumb-init", "--rewrite", "15:2", "--", "yarn", "run"]
 CMD ["start"]
