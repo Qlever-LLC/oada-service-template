@@ -40,4 +40,10 @@ const config = convict({
    */
 });
 
+/**
+ * Error if our options are invalid.
+ * Warn if extra options found.
+ */
+config.validate({ allowed: 'warn' });
+
 export default config;
