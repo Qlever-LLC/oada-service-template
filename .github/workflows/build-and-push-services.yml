@@ -228,7 +228,7 @@ jobs:
       SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
     # Only run if we have a Snyk token?
-    if: ${{ env.SNYK_TOKEN }}
+    #if: ${{ env.SNYK_TOKEN }}
 
     steps:
       - name: Checkout
