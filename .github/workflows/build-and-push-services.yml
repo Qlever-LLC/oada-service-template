@@ -225,7 +225,7 @@ jobs:
     runs-on: ubuntu-latest
 
     # Only run if we have a Snyk token?
-    if: ${{ secrets.SNYK_TOKEN }}
+    if: secrets.SNYK_TOKEN
 
     steps:
       - name: Checkout
