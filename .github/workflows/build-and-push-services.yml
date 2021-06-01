@@ -212,7 +212,7 @@ jobs:
 
     needs:
       - setup
-      - build-and-push-services
+      - build-and-push
 
     strategy:
       matrix:
