@@ -75,7 +75,8 @@ jobs:
 
   build-and-push:
     name: Build and push docker Image
-    needs: setup
+    needs:
+      - setup
 
     strategy:
       matrix:
@@ -194,4 +195,95 @@ jobs:
             org.opencontainers.image.revision=${{ github.sha }}
             org.opencontainers.image.licenses=${{ github.event.repository.license.spdx_id }}
           cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new
+
+      -
+        # Temp fix
+        # https://github.com/docker/build-push-action/issues/252
+        # https://github.com/moby/buildkit/issues/1896
+        name: Move cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+
+  # Use Snyk to check docker image
+  snyk-image:
+    name: Snyk Checks
+
+    needs:
+      - setup
+      - build-and-push-services
+
+    strategy:
+      matrix:
+        service:
+          # Assume repo slug is the service slug?
+          - ${{ github.repository }}
+        context:
+          - '.'
+
+    runs-on: ubuntu-latest
+
+    # Only run if we have a Snyk token?
+    if: ${{ secrets.SNYK_TOKEN }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+
+      - name: Find Docker tag for Snyk
+        id: tag
+        run: |
+          # Doesn't like upper case
+          OWNER=$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')
+          # Name on DockerHub (doesn't like extra / in images?)
+          #DOCKER_IMAGE=${OWNER}/$(echo ${{ matrix.service }} | tr '/' '-')
+          # Name on GHCR
+          GHCR_IMAGE=ghcr.io/${OWNER}/${{ matrix.service}}
+
+          TAG="${GHCR_IMAGE}:next"
+          if [[ "${{ needs.setup.outputs.release }}" ]]; then
+            if [[ "${{ needs.setup.outputs.prerelease }}" ]]; then
+              TAG="${GHCR_IMAGE}:next"
+            else
+              TAG="${GHCR_IMAGE}:latest"
+            fi
+          fi
+
+          echo ::set-output name=tag::${TAG}
+          echo ::set-output name=org::${OWNER}
+          echo ::set-output name=cur::${GHCR_IMAGE}:sha-${GITHUB_SHA::8}
+
+      - name: Monitor Service image with Snyk
+        uses: snyk/actions/docker@master
+        # Don't break workflow on errros?
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: container monitor
+          image: ${{ steps.tag.outputs.tag }}
+          args: --org=${{ steps.tag.outputs.owner }} --file=${{ matrix.context }}/Dockerfile
+
+      - name: Test current Service image with Snyk
+        uses: snyk/actions/docker@master
+        # Don't break workflow on errros?
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          image: ${{ steps.tag.outputs.tag }}
+          args: --org=${{ steps.tag.outputs.owner }} --file=${{ matrix.context }}/Dockerfile
+
+      - name: Secure Code Warrior
+        uses: SecureCodeWarrior/github-action-add-sarif-contextual-training@v1
+        with:
+          inputSarifFile: ./snyk.sarif
+          outputSarifFile: ./securecodewarrior.sarif
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload SARIF file to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: ./securecodewarrior.sarif
+          #sarif_file: ./snyk.sarif
