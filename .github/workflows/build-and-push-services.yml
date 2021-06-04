@@ -241,6 +241,8 @@ jobs:
       - name: Find Docker tag for Snyk
         id: tag
         run: |
+          # Doesn't like upper case
+          OWNER=$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')
           # Nameo on DockerHub (Doesn't like upper case)
           DOCKER_IMAGE=$(echo ${{ matrix.service }} | tr '[:upper:]' '[:lower:]')
           # Name on GHCR
