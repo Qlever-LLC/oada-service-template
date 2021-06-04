@@ -5,24 +5,6 @@ __metadata:
   version: 4
   cacheKey: 7
 
-"@Qlever-LLC/oada-service-template@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@Qlever-LLC/oada-service-template@workspace:."
-  dependencies:
-    "@oada/client": ^2.4.1
-    "@oada/types": ^1.5.1
-    "@tsconfig/node16": ^1.0.1
-    "@types/convict": ^6.0.2
-    "@types/node": ^14.17.2
-    "@yarnpkg/pnpify": ^3.0.0-rc.6
-    convict: ^6.1.0
-    dotenv: ^10.0.0
-    prettier: ^2.3.0
-    tslib: ^2.2.0
-    typescript: ^4.3.2
-  languageName: unknown
-  linkType: soft
-
 "@arcanis/slice-ansi@npm:^1.0.2":
   version: 1.0.2
   resolution: "@arcanis/slice-ansi@npm:1.0.2"
@@ -86,6 +68,24 @@ __metadata:
   checksum: 19d6dba5a247d54c3a395d27eb60dfb08c09bc0a8ab786c485b62fd57822a00f8451bcb623bd473343c79d2bc4d7f8e0a4dab293d2404b19e62fb65bacf9a69c
   languageName: node
   linkType: hard
+
+"@qlever-llc/oada-service-template@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@qlever-llc/oada-service-template@workspace:."
+  dependencies:
+    "@oada/client": ^2.4.1
+    "@oada/types": ^1.5.1
+    "@tsconfig/node16": ^1.0.1
+    "@types/convict": ^6.0.2
+    "@types/node": ^14.17.2
+    "@yarnpkg/pnpify": ^3.0.0-rc.6
+    convict: ^6.1.0
+    dotenv: ^10.0.0
+    prettier: ^2.3.0
+    tslib: ^2.2.0
+    typescript: ^4.3.2
+  languageName: unknown
+  linkType: soft
 
 "@sindresorhus/is@npm:^4.0.0":
   version: 4.0.0
