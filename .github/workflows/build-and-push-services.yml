@@ -127,7 +127,7 @@ jobs:
           # Name on GHCR
           GHCR_IMAGE=ghcr.io/${DOCKER_IMAGE}
           # Allow overriding DockerHub repo if different from slug?
-          if [[ "${{ secrets.DOCKER_REPO }}"]]; then
+          if [[ "${{ secrets.DOCKER_REPO }}" ]]; then
             DOCKER_IMAGE=$(echo ${{ matrix.service }} | sed 's/${{ github.repository_owner }}/${{ secrets.DOCKER_REPO }}/g')
           fi
 
