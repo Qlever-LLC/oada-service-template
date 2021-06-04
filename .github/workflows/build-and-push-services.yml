@@ -126,6 +126,10 @@ jobs:
           DOCKER_IMAGE=$(echo ${{ matrix.service }} | tr '[:upper:]' '[:lower:]')
           # Name on GHCR
           GHCR_IMAGE=ghcr.io/${DOCKER_IMAGE}
+          # Allow overriding DockerHub repo if different from slug?
+          if [[ "${{ secrets.DOCKER_REPO }}"]]; then
+            DOCKER_IMAGE=$(echo ${{ matrix.service }} | sed 's/${{ github.repository_owner }}/${{ secrets.DOCKER_REPO }}/g')
+          fi
 
           TAGS="${GHCR_IMAGE}:${{ needs.setup.outputs.version }}"
           DH_TAGS="${DOCKER_IMAGE}:${{ needs.setup.outputs.version }}"
