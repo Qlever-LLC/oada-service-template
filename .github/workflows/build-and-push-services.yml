@@ -241,12 +241,14 @@ jobs:
       - name: Find Docker tag for Snyk
         id: tag
         run: |
-          # Doesn't like upper case
-          OWNER=$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')
-          # Name on DockerHub (doesn't like extra / in images?)
-          #DOCKER_IMAGE=${OWNER}/$(echo ${{ matrix.service }} | tr '/' '-')
+          # Nameo on DockerHub (Doesn't like upper case)
+          DOCKER_IMAGE=$(echo ${{ matrix.service }} | tr '[:upper:]' '[:lower:]')
           # Name on GHCR
-          GHCR_IMAGE=ghcr.io/${OWNER}/${{ matrix.service}}
+          GHCR_IMAGE=ghcr.io/${DOCKER_IMAGE}
+          # Allow overriding DockerHub repo if different from slug?
+          if [[ "${{ secrets.DOCKER_REPO }}" ]]; then
+            DOCKER_IMAGE=$(echo ${{ matrix.service }} | sed 's/${{ github.repository_owner }}/${{ secrets.DOCKER_REPO }}/g')
+          fi
 
           TAG="${GHCR_IMAGE}:next"
           if [[ "${{ needs.setup.outputs.release }}" ]]; then
