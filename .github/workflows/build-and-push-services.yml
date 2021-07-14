@@ -243,7 +243,12 @@ jobs:
           fi
 
           echo ::set-output name=tag::${TAG}
-          echo ::set-output name=org::${OWNER}
+          # Allow overriding Snyk org if different from GitHub?
+          if [[ "${{ secrets.SNYK_ORG }}" ]]; then
+            echo ::set-output name=org::${{ secrets.SNYK_ORG }}
+          else
+            echo ::set-output name=org::${OWNER}
+          fi
           echo ::set-output name=cur::${GHCR_IMAGE}:sha-${GITHUB_SHA::8}
 
       - name: Monitor Service image with Snyk
