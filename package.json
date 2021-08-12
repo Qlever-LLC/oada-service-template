@@ -9,16 +9,16 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@oada/client": "^2.4.6",
+    "@oada/client": "^2.6.1",
     "@oada/types": "^1.5.1",
     "convict": "^6.2.0",
     "dotenv": "^10.0.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.2",
     "@types/convict": "^6.1.1",
-    "@types/node": "^16.4.1",
+    "@types/node": "^16.6.1",
     "@yarnpkg/sdks": "^2.4.1-rc.4",
     "prettier": "^2.3.2",
     "typescript": "^4.3.5"
