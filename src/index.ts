@@ -1,4 +1,6 @@
-/* Copyright 2021 Qlever LLC
+/**
+ * @license
+ * Copyright 2021 Qlever LLC
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -13,9 +15,11 @@
  * limitations under the License.
  */
 
+import _debug from 'debug';
+
 import { connect, OADAClient } from '@oada/client';
 
-import config from './config';
+import config from './config.js';
 
 // Stuff from config
 const { token: tokens, domain } = config.get('oada');
@@ -40,6 +44,4 @@ async function run(token: string) {
   await conn.head({ path: '/bookmarks' });
 }
 
-for (const token of tokens) {
-  run(token);
-}
+await Promise.all(tokens.map(run));
