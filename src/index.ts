@@ -15,9 +15,7 @@
  * limitations under the License.
  */
 
-import _debug from 'debug';
-
-import { connect, OADAClient } from '@oada/client';
+import { OADAClient, connect } from '@oada/client';
 
 import config from './config.js';
 
@@ -36,7 +34,7 @@ async function run(token: string) {
   // Connect to the OADA API
   const conn = oada
     ? oada.clone(token)
-    : (oada = await connect({ token, domain: 'https://' + domain }));
+    : (oada = await connect({ token, domain: `https://${domain}` }));
 
   /**
    * Now do your service stuff...
@@ -44,4 +42,4 @@ async function run(token: string) {
   await conn.head({ path: '/bookmarks' });
 }
 
-await Promise.all(tokens.map(run));
+await Promise.all(tokens.map(async (token) => run(token)));

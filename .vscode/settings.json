@@ -37,5 +37,5 @@
   "eslint.useESLintClass": true,
   "licenser.author": "Qlever LLC",
   "licenser.license": "AL2",
-  "cSpell.words": ["sonarjs", "trellisfw"]
+  "cSpell.words": ["Buildx", "codeql", "Snyk", "sonarjs", "trellisfw"]
 }
