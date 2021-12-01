@@ -6,7 +6,7 @@ on:
 
 jobs:
   call-build-and-push-service:
-    uses: qlever-llc/workflows/.github/build-and-push-service.yml
+    uses: qlever-llc/workflows/.github/build-and-push-service.yml@master
     with:
       inputs:
         dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
