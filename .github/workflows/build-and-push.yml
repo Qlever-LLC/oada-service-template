@@ -22,7 +22,10 @@ jobs:
   call-build-and-push-service:
     uses: qlever-llc/workflows/.github/workflows/build-and-push-service.yml@master
     with:
-      secrets:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
-        snyk_token: ${{ secrets.SNYK_TOKEN }}
+      dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
+      dockerhub_repo: ${{ secrets.DOCKERHUB_REPO }}
+      snyk_org: ${{ secrets.SNYK_ORG }}
+    secrets:
+      github_token: ${{ secrets.GITHUB_TOKEN }}
+      dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
+      snyk_token: ${{ secrets.SNYK_TOKEN }}
