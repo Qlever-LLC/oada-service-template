@@ -13,9 +13,6 @@ Finally, remove this section from the README.
 [![License](https://img.shields.io/github/license/Qlever-LLC/oada-service-template)](LICENSE)
 [![Docker Pulls](https://img.shields.io/docker/pulls/Qlever-LLC/oada-service-template)][dockerhub]
 
-This is a microservice which moves (actually just makes links)
-resources from a "watch list" to another list based on rules.
-
 ## Usage
 
 Docker images for Qlever-LLC/oada-service-template are available from GitHub Container Registry.

@@ -2,6 +2,7 @@
   "search.exclude": {
     ".dccache": true,
     ".history": true,
+    ".nvimlog": true,
     "node_modules": true,
     "package.lock": true,
     "*.log": true,
@@ -23,6 +24,7 @@
   "files.exclude": {
     ".dccache": true,
     ".history": true,
+    ".nvimlog": true,
     "node_modules": true,
     "package.lock": true,
     "*.log": true,
@@ -39,11 +41,5 @@
   "eslint.useESLintClass": true,
   "licenser.author": "Qlever LLC",
   "licenser.license": "AL2",
-  "cSpell.words": [
-    "Buildx",
-    "codeql",
-    "Snyk",
-    "sonarjs",
-    "trellisfw"
-  ]
+  "cSpell.words": ["Buildx", "codeql", "Snyk", "sonarjs", "trellisfw"]
 }

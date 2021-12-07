@@ -48,6 +48,7 @@ overrides:
           error,
           { selector: default, format: [camelCase] },
           { selector: objectLiteralProperty, format: null },
+          { selector: enumMember, format: [PascalCase] },
           { selector: typeProperty, format: null },
 
           {
@@ -107,6 +108,7 @@ rules:
   eslint-comments/no-use: off
   no-secrets/no-secrets: error
   no-empty-label: off
+  no-return-await: off
   no-warning-comments: off
   node/no-missing-import: off
   import/no-unresolved: off
