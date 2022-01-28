@@ -8,6 +8,7 @@
     "*.log": true,
     ".DS_Store": true,
     "dist": true,
+    ".test": true,
     "*.tsbuildinfo": true,
     ".actrc": true,
     "act": true,
@@ -30,6 +31,7 @@
     "*.log": true,
     ".DS_Store": true,
     "dist": true,
+    ".test": true,
     "*.tsbuildinfo": true,
     ".actrc": true,
     "act": true,
@@ -38,8 +40,10 @@
     ".vim": true
   },
   "eslint.packageManager": "yarn",
-  "eslint.useESLintClass": true,
   "licenser.author": "Qlever LLC",
   "licenser.license": "AL2",
-  "cSpell.words": ["Buildx", "codeql", "Snyk", "sonarjs", "trellisfw"]
+  "cSpell.words": ["Buildx", "codeql", "Snyk", "sonarjs", "trellisfw"],
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "eslint.useESLintClass": true
 }

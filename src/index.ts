@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright 2021 Qlever LLC
+ * Copyright 2022 Qlever LLC
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -15,9 +15,10 @@
  * limitations under the License.
  */
 
-import { OADAClient, connect } from '@oada/client';
-
+// Import this first to setup the environment
 import config from './config.js';
+
+import { OADAClient, connect } from '@oada/client';
 
 // Stuff from config
 const { token: tokens, domain } = config.get('oada');
