@@ -28,7 +28,7 @@
         "ts"
       ],
       "rewritePaths": {
-        "lib/": "dist/",
+        "src/": "dist/",
         "test/": ".test/"
       },
       "compile": false
@@ -40,7 +40,7 @@
       "lcov"
     ],
     "all": true,
-    "src": "lib",
+    "src": "src",
     "exclude": [
       "*.d.ts",
       ".pnp.*",
