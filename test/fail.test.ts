@@ -1,4 +1,5 @@
 /**
+ * @license
  * Copyright 2022 Qlever LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +20,7 @@ import test from 'ava';
 /**
  * * N.B. ava has no `describe` blocks. Instead make lots of separate test files.
  */
-test('Example Test', async (t) => {
+test('Example Test', (t) => {
   t.log('This is an example test, please add real ones.');
   // This will always fail. Add real tests please.
   t.fail();

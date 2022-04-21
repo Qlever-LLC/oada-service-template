@@ -16,7 +16,7 @@
  */
 
 // Import this first to setup the environment
-import config from './config.js';
+import { config } from './config.js';
 
 import { OADAClient, connect } from '@oada/client';
 

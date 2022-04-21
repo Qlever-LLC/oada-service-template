@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright 2020 Qlever LLC
+ * Copyright 2022 Qlever LLC
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -15,12 +15,10 @@
  * limitations under the License.
  */
 
+import 'dotenv/config';
 import convict from 'convict';
-import { config as load } from 'dotenv';
 
-load();
-
-const config = convict({
+export const config = convict({
   oada: {
     domain: {
       doc: 'OADA API domain',
@@ -47,5 +45,3 @@ const config = convict({
  * Warn if extra options found.
  */
 config.validate({ allowed: 'warn' });
-
-export default config;
