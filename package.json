@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "build": "tsc -b",
-    "start": "node --enable-source-maps dist/index.js",
+    "start": "node ${INSPECT:-} --enable-source-maps dist/index.js",
     "test": "yarn build test && c8 ava",
     "test:debug": "ava -T 60m -svc 1 --no-worker-threads",
     "lint": "eslint ."
@@ -49,11 +49,11 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@oada/client": "^4.0.1",
+    "@oada/client": "^4.1.1",
     "@oada/types": "^2.0.1",
-    "convict": "^6.2.2",
+    "convict": "^6.2.3",
     "debug": "^4.3.4",
-    "dotenv": "^16.0.0",
+    "dotenv": "^16.0.1",
     "tslib": "^2.4.0"
   },
   "devDependencies": {
@@ -61,16 +61,16 @@
     "@tsconfig/node18": "^1.0.0",
     "@types/convict": "^6.1.1",
     "@types/debug": "^4.1.7",
-    "@types/node": "^16.11.33",
-    "@typescript-eslint/eslint-plugin": "^5.22.0",
-    "@typescript-eslint/parser": "^5.22.0",
-    "@yarnpkg/sdks": "^3.0.0-rc.4",
+    "@types/node": "^16.11.38",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "@yarnpkg/sdks": "^3.0.0-rc.6",
     "ava": "4.0.0-rc.1",
-    "c8": "^7.11.2",
-    "eslint": "^8.14.0",
+    "c8": "^7.11.3",
+    "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-config-xo": "^0.40.0",
-    "eslint-config-xo-typescript": "^0.50.0",
+    "eslint-config-xo": "^0.41.0",
+    "eslint-config-xo-typescript": "^0.51.1",
     "eslint-formatter-pretty": "^4.1.0",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-plugin-array-func": "^3.1.7",
@@ -93,9 +93,9 @@
     "eslint-plugin-sonarjs": "^0.13.0",
     "eslint-plugin-unicorn": "^42.0.0",
     "prettier": "^2.6.2",
-    "typescript": "^4.6.4"
+    "typescript": "^4.7.2"
   },
-  "packageManager": "yarn@3.2.0",
+  "packageManager": "yarn@3.2.1",
   "volta": {
     "node": "18.1.0"
   }

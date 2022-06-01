@@ -13,15 +13,15 @@
 # limitations under the License.
 
 ARG NODE_VER=18-alpine
-ARG SERVICE=Qlever-LLC/oada-service-template
+ARG DIR=/usr/src/app/
 
 FROM node:$NODE_VER AS install
 ARG SERVICE
 
-WORKDIR /$SERVICE
+WORKDIR ${DIR}
 
-COPY ./.yarn /$SERVICE/.yarn
-COPY ./package.json ./yarn.lock ./.yarnrc.yml /$SERVICE/
+COPY ./.yarn ${DIR}.yarn
+COPY ./package.json ./yarn.lock ./.yarnrc.yml ${DIR}
 
 RUN yarn workspaces focus --all --production
 
@@ -31,7 +31,7 @@ ARG SERVICE
 # Install dev deps too
 RUN yarn install --immutable
 
-COPY . /$SERVICE/
+COPY . ${DIR}
 
 # Build code and remove dev deps
 RUN yarn build --verbose && rm -rfv .yarn .pnp*
@@ -46,10 +46,10 @@ RUN apk add --no-cache \
 # Do not run service as root
 USER node
 
-WORKDIR /$SERVICE
+WORKDIR ${DIR}
 
-COPY --from=install /$SERVICE/ /$SERVICE/
-COPY --from=build /$SERVICE/ /$SERVICE/
+COPY --from=install ${DIR} ${DIR}
+COPY --from=build ${DIR} ${DIR}
 
 # Launch entrypoint with dumb-init
 # Remap SIGTERM to SIGINT https://github.com/Yelp/dumb-init#signal-rewriting

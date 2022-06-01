@@ -16,8 +16,8 @@
     ".pnp.*": true,
     ".vim": true,
     "**/.yarn": true,
-    "**/.pnp.*": true,
-    "**/coverage": true
+    "coverage": true,
+    "tags.*": true
   },
   "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
@@ -46,7 +46,8 @@
     ".yarn": true,
     ".pnp.*": true,
     ".vim": true,
-    "**/coverage": true
+    "coverage": true,
+    "tags.*": true
   },
   "eslint.packageManager": "yarn",
   "licenser.author": "Qlever LLC",
