@@ -18,7 +18,7 @@
 // Import this first to setup the environment
 import { config } from './config.js';
 
-import { OADAClient, connect } from '@oada/client';
+import { type OADAClient, connect } from '@oada/client';
 
 // Stuff from config
 const { token: tokens, domain } = config.get('oada');

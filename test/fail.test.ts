@@ -22,6 +22,6 @@ import test from 'ava';
  */
 test('Example Test', (t) => {
   t.log('This is an example test, please add real ones.');
-  // This will always fail. Add real tests please.
+  // ! This will always fail. Add real tests please. !
   t.fail();
 });
