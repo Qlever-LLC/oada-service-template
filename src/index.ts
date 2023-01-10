@@ -18,6 +18,9 @@
 // Import this first to setup the environment
 import { config } from './config.js';
 
+// Import this _before_ pino and/or DEBUG
+import '@oada/pino-debug';
+
 import { type OADAClient, connect } from '@oada/client';
 
 // Stuff from config

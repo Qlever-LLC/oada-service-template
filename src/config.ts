@@ -15,10 +15,9 @@
  * limitations under the License.
  */
 
-import 'dotenv/config';
-import convict from 'convict';
+import libConfig from '@oada/lib-config';
 
-export const config = convict({
+export const { config } = await libConfig({
   oada: {
     domain: {
       doc: 'OADA API domain',
@@ -39,9 +38,3 @@ export const config = convict({
    * Add more config stuff when needed
    */
 });
-
-/**
- * Error if our options are invalid.
- * Warn if extra options found.
- */
-config.validate({ allowed: 'warn' });
