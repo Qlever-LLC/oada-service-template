@@ -38,7 +38,7 @@ async function run(token: string) {
   // Connect to the OADA API
   const conn = oada
     ? oada.clone(token)
-    : (oada = await connect({ token, domain: `https://${domain}` }));
+    : (oada = await connect({ token, domain }));
 
   /**
    * Now do your service stuff...
