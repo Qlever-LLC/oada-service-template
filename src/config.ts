@@ -28,8 +28,8 @@ export const { config } = await libConfig({
     },
     token: {
       doc: 'OADA API token',
-      format: Array,
-      default: ['god'],
+      format: String,
+      default: 'god',
       env: 'TOKEN',
       arg: 'token',
     },

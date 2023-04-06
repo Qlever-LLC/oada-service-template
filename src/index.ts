@@ -21,29 +21,14 @@ import { config } from './config.js';
 // Import this _before_ pino and/or DEBUG
 import '@oada/pino-debug';
 
-import { type OADAClient, connect } from '@oada/client';
+import { connect } from '@oada/client';
 
 // Stuff from config
-const { token: tokens, domain } = config.get('oada');
+const { token, domain } = config.get('oada');
+
+const conn = await connect({ token, domain });
 
 /**
- * Shared OADA client instance?
+ * Now do your service stuff...
  */
-let oada: OADAClient;
-
-/**
- * Start-up for a given user (token)
- */
-async function run(token: string) {
-  // Connect to the OADA API
-  const conn = oada
-    ? oada.clone(token)
-    : (oada = await connect({ token, domain }));
-
-  /**
-   * Now do your service stuff...
-   */
-  await conn.head({ path: '/bookmarks' });
-}
-
-await Promise.all(tokens.map(async (token) => run(token)));
+await conn.head({ path: '/bookmarks' });
