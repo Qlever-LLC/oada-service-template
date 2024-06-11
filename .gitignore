@@ -154,4 +154,5 @@ dist
 !.yarn/releases
 !.yarn/plugins
 !.yarn/versions
+!.yarn/patches
 .pnp.*

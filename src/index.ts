@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright 2022 Qlever LLC
+ * Copyright 2024 Qlever LLC
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,10 @@ import { config } from './config.js';
 
 // Import this _before_ pino and/or DEBUG
 import '@oada/pino-debug';
+
+// Add prometheus support and default metrics
+// FIXME: Add your own metrics as well
+import '@oada/lib-prom';
 
 import { connect } from '@oada/client';
 

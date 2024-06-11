@@ -15,12 +15,10 @@
     ".yarn": true,
     ".pnp.*": true,
     ".vim": true,
-    "**/.yarn": true,
     "coverage": true,
-    "tags.*": true,
-    "**/.pnp.*": true
+    "tags.*": true
   },
-  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+  "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "eslint.nodePath": ".yarn/sdks",
@@ -50,7 +48,6 @@
     "coverage": true,
     "tags.*": true
   },
-  "eslint.packageManager": "yarn",
   "licenser.author": "Qlever LLC",
   "licenser.license": "AL2",
   "cSpell.words": [
