@@ -33,6 +33,7 @@
 !.yarn/releases
 !.yarn/plugins
 !.yarn/versions
+!.yarn/patches
 .pnp.*
 # ignore sdk stuff
 .vim
