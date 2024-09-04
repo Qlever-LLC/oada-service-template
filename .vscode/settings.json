@@ -16,7 +16,9 @@
     ".pnp.*": true,
     ".vim": true,
     "coverage": true,
-    "tags.*": true
+    "tags.*": true,
+    "**/.yarn": true,
+    "**/.pnp.*": true
   },
   "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
