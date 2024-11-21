@@ -79,6 +79,8 @@ overrides:
             leadingUnderscore: require,
           },
 
+          { selector: memberLike, modifiers: [static], format: [PascalCase] },
+
           { selector: typeLike, format: [PascalCase] },
           { selector: parameter, modifiers: [destructured], format: null },
         ]
