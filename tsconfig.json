@@ -2,6 +2,7 @@
   "extends": "@tsconfig/node22",
   "compilerOptions": {
     "composite": true,
+    "checkJs": true,
     "module": "node16",
     "moduleResolution": "node16",
     "removeComments": true,
