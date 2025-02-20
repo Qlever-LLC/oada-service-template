@@ -20,8 +20,6 @@ ARG DIR=/usr/src/app/
 FROM node:${NODE_VER} AS base
 ARG DIR
 
-RUN corepack enable
-
 # Install needed packages
 RUN apk add --no-cache \
   dumb-init
@@ -53,6 +51,9 @@ RUN corepack yarn build --verbose
 
 FROM base AS production
 ARG DIR
+
+ENV COREPACK_HOME=/home/node/.cache/node/corepack
+RUN corepack enable
 
 # Copy in built code
 COPY --from=build ${DIR}/dist ${DIR}/dist
