@@ -15,23 +15,23 @@
  * limitations under the License.
  */
 
-import libConfig from '@oada/lib-config';
+import libConfig from "@oada/lib-config";
 
 export const { config } = await libConfig({
   oada: {
     domain: {
-      doc: 'OADA API domain',
+      doc: "OADA API domain",
       format: String,
-      default: 'localhost',
-      env: 'DOMAIN',
-      arg: 'domain',
+      default: "localhost",
+      env: "DOMAIN",
+      arg: "domain",
     },
     token: {
-      doc: 'OADA API token',
+      doc: "OADA API token",
       format: String,
-      default: 'god',
-      env: 'TOKEN',
-      arg: 'token',
+      default: "god",
+      env: "TOKEN",
+      arg: "token",
     },
   },
   /**

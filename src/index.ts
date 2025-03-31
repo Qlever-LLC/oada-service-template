@@ -16,23 +16,23 @@
  */
 
 // Import this first to setup the environment
-import { config } from './config.js';
+import { config } from "./config.js";
 
 // Import this _before_ pino and/or DEBUG
-import '@oada/pino-debug';
+import "@oada/pino-debug";
 
 // Add prometheus support and default metrics
 // FIXME: Add your own metrics as well
-import '@oada/lib-prom';
+import "@oada/lib-prom";
 
-import { connect } from '@oada/client';
+import { connect } from "@oada/client";
 
 // Stuff from config
-const { token, domain } = config.get('oada');
+const { token, domain } = config.get("oada");
 
 const conn = await connect({ token, domain });
 
 /**
  * Now do your service stuff...
  */
-await conn.head({ path: '/bookmarks' });
+await conn.head({ path: "/bookmarks" });

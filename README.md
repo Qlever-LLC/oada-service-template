@@ -12,7 +12,6 @@ Finally, remove this section from the README.
 
 [![Coverage Status](https://coveralls.io/repos/Qlever-LLC/oada-service-template/badge.svg?branch=master)](https://coveralls.io/r/Qlever-LLC/oada-service-template?branch=master)
 [![Docker Pulls](https://img.shields.io/docker/pulls/Qlever-LLC/oada-service-template)][dockerhub]
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![License](https://img.shields.io/github/license/Qlever-LLC/oada-service-template)](LICENSE)
 
 ## Usage
